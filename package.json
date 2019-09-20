@@ -1,0 +1,19 @@
+{
+  "name": "web-framework",
+  "version": "1.0.0",
+  "description": "Custom web framework that's built on Express (but with more middleware added, etc.)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ethan Kaminski",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "express": "^4.17.1",
+    "express-formidable": "^1.2.0",
+    "express-session": "^1.16.2",
+    "pug": "^2.0.4",
+    "tingodb": "^0.6.1"
+  }
+}

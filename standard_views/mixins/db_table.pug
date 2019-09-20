@@ -1,0 +1,9 @@
+mixin db_table(keys, rows, config={})
+	table
+		tr
+			each key in keys
+				th= key
+		each row in rows
+			tr
+				each key in keys
+					td= row[key]
