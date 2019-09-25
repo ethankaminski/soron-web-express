@@ -95,6 +95,5 @@ module.exports = {
 			console.log('Listening on port ' + PORT);
 		})
 	},
-	get_db,
 	bcrypt: require('bcrypt'), // temporary
 }
