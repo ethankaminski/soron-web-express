@@ -1,5 +1,5 @@
 const express = require('express');
-const app = express();
+var app = express();
 
 const session = require('express-session');
 
@@ -31,6 +31,9 @@ app.use(function(req, res, next) {
 })
 
 const storage = require('./src/storage.js')
+
+
+app = require('./src/express_extensions.js').extend(app);
 
 
 function use_session(secret_file, store=null) {
