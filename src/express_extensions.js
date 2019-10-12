@@ -48,6 +48,8 @@ function extend(app) {
 			return target.apply(thisArg, args);
 		}
 	})
+
+	return app;
 }
 
 module.exports = {
