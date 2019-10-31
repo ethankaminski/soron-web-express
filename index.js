@@ -4,6 +4,7 @@ var app = express();
 const session = require('express-session');
 
 const fs = require('fs');
+const crypto = require('crypto');
 
 app.use(express.static("public"));
 
@@ -36,7 +37,14 @@ const storage = require('./src/storage.js')
 app = require('./src/express_extensions.js').extend(app);
 
 
-function use_session(secret_file, store=null) {
+function use_session(store=null) {
+	const secret_file = 'local/session.secret';
+	// ensure that we have a real secret available (and, tbh, generating from a CSPRNG is what I'd usually do by hand, anyway)
+	if (!fs.existsSync(secret_file)) {
+		let secret = crypto.randomBytes(64).toString('hex');
+		fs.writeFileSync(secret_file, secret);
+	}
+
 	var SECRETS = {
 		session: fs.readFileSync(secret_file).toString().replace(/\s+/),
 	}
